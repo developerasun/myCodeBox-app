@@ -1,7 +1,54 @@
 # Learning React Native Essentials
-Took below course and summarized essentials. 
+> Many different kinds of people use React Native: from advanced iOS developers to React beginners, to people getting started programming for the first time in their career. These docs were written for all learners, no matter their experience level or background.
 
-- [React Native Tutorial for Beginners](https://www.youtube.com/watch?v=ur6I5m2nTvk&list=PL4cUxeGkcC9ixPU-QkScoRBVxtPPzVjrQ&index=1)
+> To work with React Native, you will need to have an understanding of JavaScript fundamentals. If you’re new to JavaScript or need a refresher, you can dive in or brush up at Mozilla Developer Network.
+
+## Basics
+> With React, you can make components using either classes or functions. Originally, class components were the only components that could have state. But since the introduction of React's Hooks API, you can add state and more to function components.
+
+> Hooks were introduced in React Native 0.59., and because Hooks are the future-facing way to write your React components, we wrote this introduction using function component examples. Where useful, we also cover class components under a toggle like so:
+
+```jsx 
+import { Text, View } from 'react-native';
+// functional component
+const HelloWorldApp = () => {
+  return (
+    <View style={{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}>
+      <Text>Hello, world!</Text>
+    </View>
+  );
+}
+
+export default HelloWorldApp;
+
+// class component
+import React, { Component } from 'react';
+import { Text, View } from 'react-native';
+
+class HelloWorldApp extends Component {
+  render() {
+    return (
+      <View style={{
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center"
+        }}>
+        <Text>Hello, world!</Text>
+      </View>
+    );
+  }
+}
+
+export default HelloWorldApp;
+```
+
+## Core component and native component
+> React Native is an open source framework for building Android and iOS applications using React and the app platform’s native capabilities. With React Native, you use JavaScript to access your platform’s APIs as well as to describe the appearance and behavior of your UI using React components: bundles of reusable, nestable code. You can learn more about React in the next section. But first, let’s cover how components work in React Native.
+
 
 ## How React Native works
 React native compiles your components into native codes such as Android and IOS. 
@@ -62,3 +109,4 @@ And then, in Expo application, click "Run on Android device/emulator" to connect
 
 ## Reference 
 - [React Native](https://reactnative.dev/docs/environment-setup)
+- [React Native Tutorial for Beginners](https://www.youtube.com/watch?v=ur6I5m2nTvk&list=PL4cUxeGkcC9ixPU-QkScoRBVxtPPzVjrQ&index=1)
