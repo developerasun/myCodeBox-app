@@ -1,11 +1,108 @@
-import 'dart:ffi';
-
 void main() {
-  // playBasic();
-  // doList();
-  // doFuture();
-  // doTernary();
-  doTypeDef();
+  doOverride();
+}
+
+class Computer {
+  int price = 100;
+
+  void printPrice() {
+    print(price);
+  }
+}
+
+class Laptop extends Computer {
+  final int tax = 20; // set only once, immutable
+
+  // overriding method with decorator
+  @override
+  void printPrice() {
+    int result = super.price + tax; // super : parent class
+    print("laptop costs : $result");
+  }
+}
+
+void doOverride() {
+  Laptop myLaptop = new Laptop();
+  myLaptop.printPrice(); // laptop costs : 100
+}
+
+class Animal {
+  String type = "animal";
+
+  void walk() {
+    print(this.type + " is walking");
+  }
+}
+
+class Dog extends Animal {
+  String legs = "4";
+
+  void checkLegs() {
+    print("dog legs : " + this.legs);
+  }
+}
+
+void doInheritance() {
+  Dog myDog = new Dog();
+  myDog.type = "dog"; // define type
+
+  myDog.walk(); // from parent class, result : dog is walking
+  myDog.checkLegs(); // from self
+}
+
+class MyGtAndSt {
+  // _variable : private, only accessible in the same file.
+  String _myName = "Jake";
+
+  get getName {
+    return this._myName;
+  }
+
+  set setName(String newName) {
+    this._myName = newName;
+  }
+}
+
+void doGetterAndSetter() {
+  MyGtAndSt jake = new MyGtAndSt();
+  print("get prop : " + jake.getName);
+  jake.setName = "wow";
+  print("set prop : " + jake.getName);
+}
+
+class Human {
+  String name = "Jake";
+
+  // static variable belongs to only class itself, not class instance
+  // useful to set a common attribute in class instance
+  static final String className = "Human";
+
+  // default constructor
+  Human(name_) {
+    this.name = name_;
+  }
+
+  void printName() {
+    // string interpolation
+    print("class name is : $className"); // single variable with no parenthesis
+    print("human name is : ${this.name}"); // this keyword with curly braces
+  }
+
+  // named constructor( == constructor overloading)
+  Human.withoutName();
+}
+
+void doClass() {
+  // class instance with named constructor
+  Human jake = new Human.withoutName();
+  jake.printName();
+
+  // checking parent class' static var
+  print(Human.className); 
+
+  // named constructor
+  Human jakeWithDefault = new Human("not jake");
+  jakeWithDefault.printName();
 }
 
 typedef Operation(int num1, int num2); // saving function signature
