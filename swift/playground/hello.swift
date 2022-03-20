@@ -15,5 +15,5 @@ class Person {
     let lastName = "Sung"
 }
 
-var Jake = Person()
+var Jake = Person(
 let myLastName = Jake.lastName // "Sung"
